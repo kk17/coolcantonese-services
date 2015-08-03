@@ -3,4 +3,4 @@
 .DS_Store
 .settings/
 target/
-*/prod.yaml
+**/prod.yaml
