@@ -6,8 +6,9 @@ public interface RecordService {
 	
 	Record addRecord(Record record);
 	Record getRecord(String id);
-	List<Record> getUserRecords(String uid, int limit, int offset);
 	long getUserRecordCount(String uid);
+	List<Record> getRecords(long startTime, int size, String order);
+	List<Record> getUserRecords(String uid, long startTime, int size, String order);
 	
 
 }

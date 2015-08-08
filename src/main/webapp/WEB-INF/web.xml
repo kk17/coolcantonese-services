@@ -3,19 +3,50 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
+	<!--
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:META-INF/spring/dubbo-service-provider.xml</param-value>
 	</context-param>
+	-->
 
 	<!--this listener must be defined before the spring listener -->
 	<listener>
 		<listener-class>com.alibaba.dubbo.remoting.http.servlet.BootstrapListener</listener-class>
 	</listener>
-
+	
+	<!-- 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	 -->
+  <context-param>
+    <param-name>contextClass</param-name>
+    <param-value>
+      org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+    </param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>net.kk17.coolcantonese.config.ApplicationConfig</param-value>
+  </context-param>
+  
+  <!-- Auto scan REST service -->
+<!--     <context-param>
+        <param-name>resteasy.scan</param-name>
+        <param-value>true</param-value>
+    </context-param> -->
+  
+  
+<!--   <context-param>
+        <param-name>resteasy.providers</param-name>
+        <param-value>net.kk17.jackson.JacksonContextResolver</param-value>
+    </context-param> -->
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
